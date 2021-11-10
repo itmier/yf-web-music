@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+/*
+ * @Author: 王云飞
+ * @Date: 2021-11-09 14:32:33
+ * @LastEditTime: 2021-11-09 15:55:55
+ * @LastEditors: 王云飞
+ * @Description:
+ *
+ */
+import React, { memo } from "react";
+import { renderRoutes } from "react-router-config";
+import { HashRouter } from "react-router-dom";
+import routes from "./router";
 
-function App() {
+import YFAppHeader from "@/components/app-header";
+import YFAppFooter from "@/components/app-footer";
+
+export default memo(function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <YFAppHeader />
+      {renderRoutes(routes)}
+      <YFAppFooter />
+    </HashRouter>
   );
-}
-
-export default App;
+});
